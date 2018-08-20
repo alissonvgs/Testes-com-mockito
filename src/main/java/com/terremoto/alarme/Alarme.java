@@ -5,6 +5,7 @@ public class Alarme {
 	private Exercito exercito;
 	private GuardaCosteira guardaCosteira;
 	private CorpoBombeiros corpoBombeiros;
+	private SAMU samu;
 
 	public void tremorDetectado(int magnetude, boolean terrestre) {
 
@@ -14,6 +15,8 @@ public class Alarme {
 		} else {
 			guardaCosteira.alertaTsunami();
 		}
+		
+		samu.alertaPossiveisFeridos();
 	}
 
 	public void setExercito(Exercito exercito) {
@@ -32,7 +35,13 @@ public class Alarme {
 	}
 
 	public void queimadaDetectado() {
+		samu.alertaPossiveisFeridos();
 		corpoBombeiros.alertaIncendio();
+	}
+
+	public void setSamu(SAMU samu) {
+		this.samu = samu;
+		
 	}
 
 }
